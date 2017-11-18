@@ -106,10 +106,8 @@ void MQTT_connect() {
        mqtt.disconnect();
        delay(1000);
        retries--;
-       if (retries == 0) {
-         // basically die and wait for WDT to reset me
-         while (1);
-       }
+       if (retries == 0)
+         deepSleep();
   }
   //Serial.println("MQTT Connected!");
 }
